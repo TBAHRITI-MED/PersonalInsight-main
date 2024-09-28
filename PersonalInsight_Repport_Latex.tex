@@ -1,0 +1,847 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[hmargin=2cm,vmargin=2cm]{geometry}	
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}							
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+%----------------------------------------------------
+\bibliographystyle{style utilisé}
+%----------------------------------------------------
+%\usepackage{Xcolor}
+\usepackage[linkbordercolor=red]{hyperref}
+\definecolor{myblue}{rgb}{0.33, 0.68, 0.58}
+\newcommand{\myhref}[3][myblue]{\href{#2}{\color{#1}{#3}}}
+\usepackage{sectsty}
+
+% Define the color for the section heading
+\definecolor{sectioncolor}{RGB}{43,103,119} 
+\definecolor{subectioncolor}{RGB}{107,154,159} 
+% Apply the color to the section heading
+\sectionfont{\color{sectioncolor}}
+\subsectionfont{\color{subectioncolor}}
+\newcommand{\parttoccolor}{red}
+\newcommand{\chaptertoccolor}{blue}
+\newcommand{\sectiontoccolor}{blue!70!blue}
+
+%----------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=blue,
+  linkcolor=red,
+  urlcolor=blue}
+%***************************************************************************
+\usepackage{algorithm}
+\usepackage{mathabx}
+\usepackage{bm}
+%%%%%%%%%%%%%%%%%%%%
+\usepackage[french]{minitoc}
+\usepackage{listings}
+\setcounter{minitocdepth}{2}
+\setlength{\mtcindent}{24pt}
+\renewcommand{\mtcfont}{\small\rm}
+\renewcommand{\mtcSfont}{\small\bf}
+\def\contentsname{Table des Matières}
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%
+ %fancy header and fancy chapter
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage[Glenn]{fncychap}
+\pagestyle{fancy}
+
+\lhead{PersonaInsight™}
+
+\lfoot{Daoudi , Tbahriti }
+\rfoot{Année Universitaire: 2023/2024} 
+\cfoot{\textbf{Page \thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+% le chemain des figures
+\graphicspath{ {./images/} }
+
+
+
+
+
+
+
+%le projet de fin d'étude \Contenu du document
+\begin{document}
+\begin{titlepage}
+\vspace{-5cm } 
+\begin{center}
+
+{\includegraphics[width=3cm]{esi_sba.png}}
+\end{center}
+%\begin{minipage}[b]{.2\linewidth}
+\begin{center}
+
+
+\vspace{1cm}
+\medskip
+{\Large{École Supérieure en Informatique 8 Mai 1945 de Sidi Bel Abbès}}\\
+ \vskip3cm
+ \noindent {\textsc{\LARGE \textcolor{blue}{ STUDY OF CLUSTERING ALGORITHMS BY \vskip0.5cm   
+ANALYSING CUSTOMERS PERSONALITY }}\\[2cm]}
+\end{center}
+\vskip0.5cm
+\begin{center}
+\vskip0.5cm
+%------------------------------------------------
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+    \HRule\\[0.2cm]
+        {\huge\bfseries\textcolor{red}{PersonaInsight™ 
+\\[0.2cm]}}
+    \HRule\\[1cm]
+    %------------------------------------------------
+  \textsc{\LARGE \textcolor{red}{Unveiling Customer Personalities 
+  \vskip0.2cm
+  Empowering Marketing Strategies}}\\
+\end{center}
+\vskip0.8cm
+  \centerline{ Réalisé Par:}
+  \centerline {\small \bf{\ DAOUDI AMIR SALAH EDDINE }}
+  \centerline {\small \bf{\ TBAHRITI MOHAMMED}}
+  
+  \vspace{5mm}
+  \vskip1cm
+ 
+ 
+ 
+  
+  
+   
+  
+ 
+
+\vskip3cm
+\begin{center}
+{\small{Année Universitaire : \textbf{2023-2024}}} \\
+\end{center}
+
+\end{titlepage}
+
+
+\dominitoc
+\newpage
+ \hypersetup{linkcolor=black} 
+   \tableofcontents % insertion de table des matières
+ 
+
+   
+   
+\newpage
+
+
+\chapter*{Introduction générale}
+
+\mtcaddchapter[Introduction générale]
+The purpose of this study is to know more about the customer‘s tendency of
+purchasing goods and finding the different patterns among the customer groups as well as to
+check the loyalty of the customers with the company so the company will be able to make
+different marketing strategies to build up their loyal and profitable customer base, since, in
+the era of globalization and digitalization, customers have got different platforms to purchase
+anything, so it has become difficult to secure Customer base. As attracting customers is the
+main focus of every business the findings and suggestions of this research will help the
+company to construct various research factors to decide their marketing strategies. In this
+study, various unsupervised learning algorithms used to analyze customer data. In
+Unsupervised machine learning algorithms clusters are formed. In this paper, we have used
+the PCA technique for dimensionality reduction and Agglomerative Clustering, Affinity Clustering, BIRCH,DBSCAN ,Mini-Batch K-Means, Mean Shift, OPTICS, Spectral Clustering, Gaussian Mixture
+techniques to know the customer‘s segment, the company has to focus and set their hundred
+per cent effort to give better service to their customer base.\\
+
+
+
+.......................................
+
+\chapter{Introduction and Background}
+
+\minitoc
+\textbf{Customer personality analysis}  is the process of identifying and understanding the unique
+characteristics and traits that make up an individual customer's personality. This information can
+be used by companies to tailor their marketing and sales efforts to better target and serve each
+customer's specific needs and preferences.\\
+
+Traditionally, customer personality analysis has been done manually by marketing and sales teams,
+who would use their expertise and experience to identify common patterns and trends among
+customers. However, with the advent of data mining and machine learning, it is now possible to
+automate this process using algorithms that can analyze large amounts of data and identify
+common patterns and traits among customers. \\
+
+One type of machine learning algorithm that can be used for customer personality analysis is
+unsupervised learning. Unsupervised learning algorithms are trained on a large amount of data and
+can automatically detect patterns and similarities among customers without being explicitly told
+what to look for. This makes them particularly well suited for customer personality analysis, as
+they can uncover subtle differences and trends that might not be immediately apparent to humans.\\
+The dataset for this project is a public dataset from Kaggle provided by Dr. Omar RomeroHernandez. This dataset has 2,240 rows of observations and 28 columns of variables. Among the
+variables, there are 5-character variables and 23 numerical variables.\\
+
+In this paper, we will discuss the use of unsupervised learning algorithms for customer personality
+analysis, and how they can be used by companies to better understand and serve their customers.
+We will also provide an overview of the different types of unsupervised learning algorithms and
+how they work, as well as discuss some of the challenges and limitations of using unsupervised
+learning for customer personality analysis.\\
+
+
+
+\newpage
+\section{Description about a data}
+
+   \vspace{0.2cm}
+   For this research paper the customer personality analysis dataset which is the
+secondary dataset has been collected from the ineuron.ai website ineuron is a reputed
+institution in the data science training field from India. The Dataset contains 2240 rows and
+30 columns. This dataset includes three categorical columns such as ‗Marital Status‘,
+‗Education‘ and ‗Dt\_Customer‘. 27 columns are numerical columns such as ‗ID‘, ‗Income‘,
+‗Teenhome‘, ‗kidhome‘, ‗Recency‘ and so on.\\
+
+\textbf{Here's a brief version of the data description file.}
+\vspace{0.2cm}
+
+\subsection{People}
+\begin{itemize}
+\vspace{0.2cm}
+ID: Customer's unique identifier\\
+\vspace{0.2cm}
+Year\_Birth: Customer's birth year\\
+\vspace{0.2cm}
+Education: Customer's education level\\
+\vspace{0.2cm}
+Marital\_Status: Customer's marital status\\
+\vspace{0.2cm}
+Income: Customer's yearly household income\\
+\vspace{0.2cm}
+Kidhome: Number of children in customer's household\\
+\vspace{0.2cm}
+Teenhome: Number of teenagers in customer's household\\
+\vspace{0.2cm}
+Dt\_Customer: Date of customer's enrollment with the company\\
+\vspace{0.2cm}
+Recency: Number of days since customer's last purchase\\
+\vspace{0.2cm}
+Complain: 1 if customer complained in the last 2 years, 0 otherwise\\
+\vspace{0.2cm}
+\end{itemize}
+
+\subsection{Products}
+\begin{itemize}
+\vspace{0.2cm}
+MntWines: Amount spent on wine in last 2 years\\
+\vspace{0.2cm}
+MntFruits: Amount spent on fruits in last 2 years\\
+\vspace{0.2cm}
+MntMeatProducts: Amount spent on meat in last 2 years\\
+\vspace{0.2cm}
+MntFishProducts: Amount spent on fish in last 2 years\\
+\vspace{0.2cm}
+MntSweetProducts: Amount spent on sweets in last 2 years\\
+\vspace{0.2cm}
+MntGoldProds: Amount spent on gold in last 2 years\\
+\vspace{0.2cm}
+
+\end{itemize}
+\subsection{Promotion}
+\begin{itemize}
+\vspace{0.2cm}
+NumDealsPurchases: Number of purchases made with a discount\\
+\vspace{0.2cm}
+AcceptedCmp1: 1 if customer accepted the offer in the 1st campaign, 0 otherwise\\
+\vspace{0.2cm}
+AcceptedCmp2: 1 if customer accepted the offer in the 2nd campaign, 0 otherwise\\
+\vspace{0.2cm}
+AcceptedCmp3: 1 if customer accepted the offer in the 3rd campaign, 0 otherwise\\
+\vspace{0.2cm}
+AcceptedCmp4: 1 if customer accepted the offer in the 4th campaign, 0 otherwise\\
+\vspace{0.2cm}
+AcceptedCmp5: 1 if customer accepted the offer in the 5th campaign, 0 otherwise\\
+\vspace{0.2cm}
+Response: 1 if customer accepted the offer in the last campaign, 0 otherwise\\
+\vspace{0.2cm}
+
+\end{itemize}
+
+\subsection{Place}
+
+\begin{itemize}
+\vspace{0.2cm}
+NumWebPurchases: Number of purchases made through the company’s web site\\
+\vspace{0.2cm}
+NumCatalogPurchases: Number of purchases made using a catalogue\\
+\vspace{0.2cm}
+NumStorePurchases: Number of purchases made directly in stores\\
+\vspace{0.2cm}
+NumWebVisitsMonth: Number of visits to company’s web site in the last month\\
+\vspace{0.2cm}
+
+
+\end{itemize}
+
+
+
+
+
+
+
+\section{DATA Overview}
+\textbf{Shape Of The Dataset : (2240, 29)}
+
+\begin{center}
+    \includegraphics[width=25cm, height=8cm]{Capture d’écran 2024-01-10 à 12.29.22.png}
+    \captionof{figure}{the Dataset}
+    \label{fig1}
+\end{center}
+\newpage
+
+\textbf{Informations Of The Dataset :}
+
+\begin{center}
+    \includegraphics[width=14cm, height=17cm]{Capture d’écran 2024-01-10 à 12.32.16.png}
+    \captionof{figure}{Informations Of The Dataset}
+    \label{fig1}
+\end{center}
+
+\newpage
+\textbf{Summary Of The Dataset :}
+
+\begin{center}
+    \includegraphics[width=30cm, height=17cm]{Capture d’écran 2024-01-10 à 12.36.55.png}
+    \captionof{figure}{ Dataset Summary}
+    \label{fig1}
+\end{center}
+\newpage
+Data looks good as of now. First thing we have done is to check for
+missing values.
+
+\textbf{Null values of the Dataset :}
+
+\begin{center}
+    \includegraphics[]{Capture d’écran 2024-01-10 à 12.44.47.png}
+    \captionof{figure}{Null values of the Dataset}
+    \label{fig1}
+\end{center}
+\textbf{ Insights:}
+\vspace{0.2cm}
+
+There are missing values in Income. We will drop the rows that have missing income values.
+
+Dt\_Customer that indicates the date a customer joined in this dataset is not parsed as DateTime.
+
+We will encode the categorical features into numerical form later
+
+
+
+
+
+\chapter{EDA
+}
+\section{People}
+\subsection{What is the distribution of the years of birth for our customers?}
+
+\begin{center}
+    \includegraphics[width=24cm, height=15cm]{Capture d’écran 2024-01-10 à 12.56.12.png}
+    
+    \label{fig1}
+\end{center}
+
+\subsection{What is the education level distribution?}
+
+\begin{center}
+
+    \includegraphics[width=19cm, height=15cm]{Capture d’écran 2024-01-10 à 12.59.55.png}
+    
+    \label{fig1}
+\end{center}
+\newpage
+\subsection{What is the martial status of the majority of customers?}
+\begin{center}
+    \includegraphics[]{Capture d’écran 2024-01-10 à 13.01.51.png}            
+    \label{fig1}
+\end{center}
+ \textbf{We can see a multitude of invalid values. ['Married', 'Together'] can count as a relationship. While ['Single', 'Divorced', 'Widow', 'Alone'] all fall under single status. Meanwhile 'Absurd' and 'YOLO' can be discarded since they do not have any meaning}
+ \begin{center}
+    \includegraphics[width=27cm, height=13cm]{Capture d’écran 2024-01-10 à 13.08.00.png}            
+    \label{fig1}
+   
+\end{center}
+ 
+
+\subsection{What is the income of most of the cutomers?}
+\begin{center}
+    \includegraphics[width=25cm, height=13cm]{Capture d’écran 2024-01-10 à 13.11.37.png}            
+    \label{fig1}
+\end{center}
+
+\subsection{What is the most common number for kids and teens?}
+\begin{center}
+    \includegraphics[width=25cm, height=13cm]{Capture d’écran 2024-01-10 à 13.13.52.png}            
+    \label{fig1}
+\end{center}
+\subsection{Since when did the supermarket gain its customers?}
+
+\begin{center}
+    \includegraphics[width=24cm, height=13cm]{Capture d’écran 2024-01-10 à 17.48.34.png}            
+    \label{fig1}
+\end{center}
+
+\subsection{What is the percentage of complaining customers?}
+\begin{center}
+    \includegraphics[width=18cm, height=7cm]{Capture d’écran 2024-01-10 à 17.51.12.png}            
+    \label{fig1}
+\end{center}
+\newpage
+\section{Products}
+\subsection {Which products do people spend the most amount on?}
+\begin{center}
+    \includegraphics[width=18cm, height=7cm]{Capture d’écran 2024-01-10 à 17.52.38.png}      
+\end{center}     
+50\% of the average customer spending is on wine, followed by meat at 27\% of spendings.
+
+
+\subsection {Does the product spending differ by education level?}
+\begin{center}
+    \includegraphics[width=22cm, height=12cm]{Capture d’écran 2024-01-10 à 17.59.22.png}      
+\end{center}     
+The figure indicates that PhD holders spend the most on wine. For fruits, gold, and meat products, "graduation" educated individuals spend the most. While "2n cycle" spend the most on fish and sweets.
+
+\subsection {Does Dissatisfaction Affect Spending?}
+\begin{center}
+    \includegraphics[width=22cm, height=16cm]{Capture d’écran 2024-01-10 à 18.02.00.png} 
+    \includegraphics[width=5cm, height=5cm]{Capture d’écran 2024-01-10 à 18.03.36.png}
+\end{center}     
+As expected, people who complain about the service use it less. The average spending for complainers is far less across all product categories.
+\newpage
+\section{Promotion}
+\subsection {What is the distributed of discounted purchases among different education levels?}
+\begin{center}
+    \includegraphics[width=18cm, height=15cm]{Capture d’écran 2024-01-10 à 18.05.55.png} 
+    
+\end{center}     
+We can see that the least educated individuals have a significantly higher percentage of discounted purchases. The least percentage of discounted purchases is carried out by PhD holders.
+
+\subsection {Which campaign is the most successfull among customers?}
+\begin{center}
+    \includegraphics[width=18cm, height=15cm]{Capture d’écran 2024-01-10 à 18.08.01.png} 
+    
+\end{center}     
+We can observe that the demand on campaign offers is extremely low among customers, as the most successful campaign attracted only about 15\% of the customers.
+\subsection{Calculating age by year of birth since age is useful in classification}
+\begin{center}
+    \includegraphics[width=18cm, height=6cm]{Capture d’écran 2024-01-10 à 18.11.55.png}
+    \includegraphics[width=22cm, height=6cm]{Capture d’écran 2024-01-10 à 18.13.59.png}
+    
+\end{center} 
+\subsection{the distribution of customer's age}
+\begin{center}
+    \includegraphics[width=19cm, height=7cm]{Capture d’écran 2024-01-10 à 18.16.16.png}
+\end{center} 
+\textbf{Insights:}
+\vskip 0.2cm
+We can see it's a normal distribution of customer's age\\
+Most of the customers are from 34 to 50.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Data Cleaning}
+ \section{Missing values}
+First of all, for the missing values, I am simply going to drop the rows that have missing income values.
+\begin{center}
+    \includegraphics[width=10cm, height=3cm]{Capture d’écran 2024-01-10 à 18.31.11.png}
+\end{center} 
+
+\section{Calculating age by year of birth since age is useful in classification}
+\begin{center}
+    \includegraphics[width=18cm, height=9cm]{Capture d’écran 2024-01-10 à 18.38.20.png}
+    \includegraphics[width=18cm, height=9cm]{Capture d’écran 2024-01-10 à 18.41.47.png}
+\end{center} 
+
+\section{Data visulization after cleaning}
+\begin{center}
+    \includegraphics[width=18cm, height=9cm]{Capture d’écran 2024-01-10 à 18.44.06.png}
+    \includegraphics[width=18cm, height=12cm]{__results___34_0.png}
+   
+\end{center} 
+
+\section{ Correlation }
+\begin{center}
+    \includegraphics[width=18cm, height=9cm]{Capture d’écran 2024-01-10 à 18.47.29.png}
+    \includegraphics[width=18cm, height=5cm]{35.png}
+   
+\end{center} 
+\section{ visualization}
+\begin{center}
+    \includegraphics[width=18cm, height=2cm]{Capture d’écran 2024-01-10 à 18.50.10.png}
+    \includegraphics[width=18cm, height=16cm]{36.png}
+   
+\end{center} 
+\subsection{ Marital status}
+\begin{center}
+    \includegraphics[width=18cm, height=7cm]{Capture d’écran 2024-01-10 à 18.53.39.png}
+    \includegraphics[width=18cm, height=9cm]{Capture d’écran 2024-01-10 à 18.53.52.png}
+   
+\end{center} 
+\subsection{ Age}
+\begin{center}
+    \includegraphics[width=18cm, height=10cm]{Capture d’écran 2024-01-10 à 18.57.11.png}
+    \includegraphics[width=18cm, height=7cm]{Capture d’écran 2024-01-10 à 18.58.06.png}
+    \includegraphics[width=18cm, height=10cm]{Capture d’écran 2024-01-10 à 18.59.09.png}
+\end{center} 
+--in single there are more number of people who do PhD less number of people who do basic and --average age is between 40-50\\
+--in together it is alomost equal number of doing PhD and Masters less number of people who do 2n cycle and average age is between 50-60\\
+--in married it is alomost equal number of doing PhD and Masters less number of people who do basic and average age is between 40-50\\
+--in divorced it is alomost equal number of doing PhD and 2ncylce less number of people who do basic and average age is between 50 - 60\\
+--in widow more number of people do masters and less number of people do graduation and average age is between 60-70\\
+--in alone there is only 3 categories graduation,PhD,masters and they do masters more and 2ncycle less average age is 40-50\\
+--in absurd there is only 2 categories masters,graduation and people doing masters are more average age is 40-50\\
+--in yolo only in category PhD
+
+
+\chapter{Data Preprocessing}
+\textbf{Data preprocessing} refers to converting the raw data into meaningful data by
+manipulating the data. Data can contain missing values, outliers and inconsistent data. Data
+preprocessing most important step in data analysis because data which is not properly or
+carefully preprocessed can give misleading results. Data cleaning refers to identifying
+missing values, incorrect, corrupted, duplicate, incorrectly formatted or incomplete data
+within the dataset and fixing or removing them. Data cleaning can be done interactively with
+help of data-wrangling tools\\
+
+\vspace{0,1cm}
+\textbf{Steps taken to Preprocessing Dataset:}
+\begin{itemize}
+\item The income column of the data frame has 24 missing values. The missing numbers are
+being dropped because it is fewer. 
+\vspace{0,5cm}
+\item We are creating a feature that displays the length of time a customer has been in the
+company's database. This feature will be based on the "Dt Customer" data.
+\vspace{0,5cm}
+\item We replaced the unique values in ‗Marital\_Status‘ and ‗Education‘ for the sake of
+simplicity of the analysis of the data.
+\vspace{0,5cm}
+\item To Obtain the age of the customer we added the new column ‗Current\_year‘ so that
+we could add a new column ‗Age‘, by the using ‗Birth\_year‘ and ‗Current\_year‘
+columns. We plotted the boxplot for the age, but there were outliers, to remove
+outliers we used the cap method to remove the outliers.
+\vspace{0,5cm}
+\item Add a new feature called "Spent" that displays the customer's overall spending across all
+categories over a two-year period.
+\vspace{0,5cm}
+\item We added the ‗Is\_parent‘ column by using ‗Teenhome‘ and ‗Kidhome‘ for more
+understanding of the data
+\vspace{0,5cm}
+\item After plotting for “Income” and “Age”, outliers are present which will be deleted
+\vspace{0,5cm}
+\item Dropping the columns of deals accepted and promotions, then scaling the remaining
+features using “Standard scaler”.
+
+
+
+
+\end{itemize}
+
+\section{Count of ouliers  using IQR method}
+
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 19.04.31.png}
+   
+\end{center} 
+
+\section{Encoding}
+
+\begin{center}
+    \includegraphics[width=18cm, height=17cm]{Capture d’écran 2024-01-10 à 19.18.01.png}
+   
+\end{center} 
+
+
+\chapter{Feature Scaling}
+\begin{center}
+    \includegraphics[width=18cm, height=15cm]{Capture d’écran 2024-01-10 à 19.19.49.png}
+   
+\end{center} 
+
+
+
+
+
+
+\chapter{Dimensionality reduction using PCA}
+\textbf{Principal component analysis (PCA)} is a technique for reducing the dimensionality of such
+datasets, increasing interpretability but at the same time minimizing information loss.
+The final classification in this challenge will be based on a wide range of variables. These aspects
+or characteristics are essentially these factors. Working with it becomes more challenging the more
+features it has. The correlation between several of these features makes them unnecessary. For this
+reason, before running the features through a classifier, I shall reduce their dimensionality.
+We are reducing the dimensions to 3. After this we will be plotting these data frame.
+\begin{center}
+    \includegraphics[width=18cm, height=13cm]{Capture d’écran 2024-01-10 à 19.33.27.png}
+    \includegraphics[width=18cm, height=14cm]{Capture d’écran 2024-01-10 à 19.34.51.png}
+   
+\end{center} 
+\newpage
+\chapter{Creating our Models}
+\section{AGGLOMERATIVE CLUSTERING}
+Now that I have reduced the attributes to three dimensions, I will be performing clustering via Agglomerative clustering. Agglomerative clustering is a hierarchical clustering method. It involves merging examples until the desired number of clusters is achieved.\\
+\vskip 1
+\textbf{Steps involved in the Clustering}
+\vskip 1
+--Elbow Method to determine the number of clusters to be formed\\
+--Clustering via Agglomerative Clustering\\
+--Examining the clusters formed via scatter plot\\
+\begin{center}
+    \includegraphics[width=18cm, height=11cm]{Capture d’écran 2024-01-10 à 19.47.29.png}
+   
+   
+\end{center} 
+\begin{center}
+    \textbf{The result}
+  \includegraphics[]{40.png} 
+   
+\end{center} 
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=15cm]{Capture d’écran 2024-01-10 à 20.00.45.png}
+   \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 20.04.58.png}
+   
+\end{center} 
+
+\section{Affinity Clustering Model}
+Affinity Propagation involves finding a set of exemplars that best summarize the data. It is implemented via the AffinityPropagation class and the main configuration to tune is the “damping” set between 0.5 and 1, and perhaps “preference.”\\
+\vskip 1
+\begin{center}
+    \includegraphics[width=18cm, height=5cm]{Capture d’écran 2024-01-10 à 20.08.54.png}
+     \includegraphics[width=18cm, height=11cm]{Capture d’écran 2024-01-10 à 20.09.07.png}
+   \textbf{The result}
+   \includegraphics[width=15cm,height=4cm]{newplot.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 20.17.01.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 20.19.29.png}
+  
+   
+\end{center} 
+
+
+\section{BIRCH Clustering }
+\textbf{BIRCH Clustering} (BIRCH is short for Balanced Iterative Reducing and Clustering using Hierarchies) involves constructing a tree structure from which cluster centroids are extracted. It is implemented via the Birch class and the main configuration to tune is the “threshold” and “n\_clusters” hyperparameters, the latter of which provides an estimate of the number of clusters.\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=5cm]{Capture d’écran 2024-01-10 à 21.49.51.png}
+     \includegraphics[width=18cm, height=11cm]{Capture d’écran 2024-01-10 à 21.50.06.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=6cm]{Capture d’écran 2024-01-10 à 21.51.13.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 21.53.23.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 21.54.17.png}
+  
+   
+\end{center} 
+
+\section{DBSCAN CLUSTERING}
+\textbf{DBSCAN Clustering} (where DBSCAN is short for Density-Based Spatial Clustering of Applications with Noise) involves finding high-density areas in the domain and expanding those areas of the feature space around them as clusters. It is implemented via the DBSCAN class and the main configuration to tune is the “eps” and “min\_samples” hyperparameters\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{Capture d’écran 2024-01-10 à 21.57.06.png}
+     \includegraphics[width=18cm, height=12cm]{Capture d’écran 2024-01-10 à 21.57.15.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{Capture d’écran 2024-01-10 à 21.58.04.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 22.04.28.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 22.06.53.png}
+  
+   
+\end{center} 
+\section{Mini-Batch K-Means}
+\textbf{Mini-Batch K-Means} is a modified version of k-means that makes updates to the cluster centroids using mini-batches of samples rather than the entire dataset, which can make it faster for large datasets, and perhaps more robust to statistical noise. It is implemented via the MiniBatchKMeans class and the main configuration to tune is the “n\_clusters” hyperparameter set to the estimated number of clusters in the data\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{Capture d’écran 2024-01-10 à 22.11.34.png}
+     \includegraphics[width=18cm, height=12cm]{Capture d’écran 2024-01-10 à 22.11.47.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{Capture d’écran 2024-01-10 à 22.12.44.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 22.14.36.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 22.14.45.png}
+  
+   
+\end{center} 
+
+\section{Mean shift}
+\textbf{Mean shift clustering}  involves finding and adapting centroids based on the density of examples in the feature space. It is implemented via the MeanShift class and the main configuration to tune is the “bandwidth” hyperparameter.\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{mean1.png}
+     \includegraphics[width=18cm, height=12cm]{mean2.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{mean3.png}
+\end{center} 
+
+
+
+\section{Optics}
+\textbf{OPTICS clustering}  (where OPTICS is short for Ordering Points To Identify the Clustering Structure) is a modified version of DBSCAN described above. It is implemented via the OPTICS class and the main configuration to tune is the “eps” and “min\_samples” hyperparameters.\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{Capture d’écran 2024-01-10 à 22.18.48.png}
+     \includegraphics[width=18cm, height=12cm]{Capture d’écran 2024-01-10 à 22.18.57.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{Capture d’écran 2024-01-10 à 22.19.52.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 22.20.18.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 22.20.41.png}
+  
+   
+\end{center} 
+
+\section{Spectral Clustering}
+\textbf{Spectral Clustering} is a general class of clustering methods, drawn from linear algebra. It is implemented via the SpectralClustering class and the main Spectral Clustering is a general class of clustering methods, drawn from linear algebra. to tune is the “n\_clusters” hyperparameter used to specify the estimated number of clusters in the data.\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{Capture d’écran 2024-01-10 à 22.23.39.png}
+     \includegraphics[width=18cm, height=12cm]{Capture d’écran 2024-01-10 à 22.23.48.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{Capture d’écran 2024-01-10 à 22.24.01.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 22.25.03.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 22.25.13.png}
+  
+   
+\end{center} 
+
+\section{Gaussian Mixture Model}
+\textbf{A Gaussian mixture model} summarizes a multivariate probability density function with a mixture of Gaussian probability distributions as its name suggests. It is implemented via the GaussianMixture class and the main configuration to tune is the “n\_clusters” hyperparameter used to specify the estimated number of clusters in the data.}  summarizes a multivariate probability density function with a mixture of Gaussian probability distributions as its name suggests. It is implemented via the GaussianMixture class and the main configuration to tune is the “n\_clusters” hyperparameter used to specify the estimated number of clusters in the data.\\
+
+\begin{center}
+    \includegraphics[width=18cm, height=4cm]{Capture d’écran 2024-01-10 à 22.27.43.png}
+     \includegraphics[width=18cm, height=12cm]{Capture d’écran 2024-01-10 à 22.27.59.png}
+   \textbf{The result}
+   \includegraphics[width=10cm,height=7cm]{Capture d’écran 2024-01-10 à 22.28.12.png}
+\end{center} 
+
+\section{Evaluation}
+\begin{center}
+    \includegraphics[width=18cm, height=16cm]{Capture d’écran 2024-01-10 à 22.29.26.png}
+    \includegraphics[width=18cm, height=18cm]{Capture d’écran 2024-01-10 à 22.29.41.png}
+  
+   
+\end{center} 
+
+
+\chapter{Comparing the models }
+
+\textbf{Ther Davies Bouldin Index (DBI) measures the ratio between the distances of cluster points to the center and the distance between cluster centers. Therefore, we want a small number. The Silhouette Index, measures the distances between points of the same clusters, and distances between the same points and other cluster's points. This way, it can get a measure of cluster fit, how good does the point fit in its cluster.}
+\begin{center}
+    \includegraphics[width=18cm, height=8cm]{evaluation.png}
+
+\end{center} 
+
+we can clearly see that Affinity clustering has the best score of evaluation , However , it gave us an absurd amount of clusters, so we can say it got the best evaluation because all finlly similiar points are of the same cluster , so the theorical aspect of this approach does not help in the goals of this study , which is helping the marketing campaign , therefore *Agglomerative * works best for our objective.\\
+
+Note : the evaluation of clustering models is just a theorical aspect as we said earlier , diffrent supermarkets for example or any organisation have diffrent goals for their stratigies, for example ,\\
+
+if they want to make the campaign mainly for the high income and high spending customers , the agglomerative model comes out with the best result for that,\\
+
+if they want to regulate the campaign and need to atract all sorts of customers , then they will need the number of customers per cluster (id. groupe) to be close on similiar equal distribution , the Mini-Batch K-means model have the best result for that,\\
+
+and so on , in our future analysis on customers , also said Customer Profiling , we'll study only the outcome of the Agglomerative Clustering Model , and deploy it , and try to make new predictions at the end.\\
+
+Concept : We'll try to deploy all the models and guide the companies towards using the best model that suits there objective.\\
+
+
+
+\chapter*{Conclusion (The Study Outcome)}
+
+\mtcaddchapter[Conclusion (The Study Outcome)]
+\section*{Cluster 0: (895)}
+\begin{itemize}
+\item Average Income of \$34,865 yearly.
+\item Average Spending is \$500.
+\item The majority of them have not accepted any promotions yet (822).
+\item Most of them have completed purchases using a discount half of the time (1/2).
+\item Have either 1 or 2 children.
+\item Their age ranges between 25 and 70.
+\item Are at the graduate, postgraduate, or undergraduate level.
+\item Most are married, only a few are unmarried.
+\item Most of them are parents, very few are not parents.
+\end{itemize}
+
+\section*{Cluster 1: (578)}
+\begin{itemize}
+\item Average Income of \$65,463 yearly.
+\item Average Spending is between \$550 and \$2000.
+\item The majority of them have not accepted any promotions yet (428).
+\item Most of them have completed purchases using a discount a quarter of the time (1/4).
+\item Most of them have one child.
+\item Their age ranges between 35 and 70.
+\item Are at the graduate or postgraduate level.
+\item Most of them are married.
+\item Are not parents.
+\end{itemize}
+
+\section*{Cluster 2: (383)}
+\begin{itemize}
+\item Average Income of \$78,413 yearly.
+\item Average Spending is between \$750 and \$2250.
+\item The majority of them have not accepted any promotions yet (210).
+\item Most of them have completed purchases using a discount half of the time (1/2).
+\item Don't have any children.
+\item Their age ranges between 40 and 70.
+\item Are at the graduate, and very few are at the postgraduate level.
+\item Most of them are married.
+\item Are parents.
+\end{itemize}
+
+\section*{Cluster 3: (360)}
+\begin{itemize}
+\item Average Income of \$45,902 yearly.
+\item Average Spending is between \$0 and \$1000.
+\item The majority of them have not accepted any promotions yet (297).
+\item Most of them have completed purchases using a discount 3 to 5 times.
+\item Have one, two, or three children.
+\item Their age ranges between 40 and 70.
+\item All of them are at the graduate and postgraduate level.
+\item Most of them are married.
+\item Are parents.
+\end{itemize}
+
+
+
+
+
+
+
+\end{document}
